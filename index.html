@@ -1,10 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>我的第一个网页</title>
+    <title>我的图片轮播网页</title>
+    <style>
+        /* 添加基础样式 */
+        body {
+            text-align: center;
+            padding: 20px;
+        }
+        #image-container {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        #current-image {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <h1>wangzixuan is cute!</h1>
-    <img src="cat.webp" alt="一只猫" width="300">
+    <h1>Hello World!</h1>
+    <div id="image-container">
+        <img id="current-image" src="image1.jpg" alt="轮播图片">
+    </div>
+    <button onclick="switchImage()">点我更可爱</button>
+
+    <script>
+        // 图片数组（替换为你的实际文件名）
+        const images = [
+            "image1.jpg",
+            "image2.jpg",
+            "image3.webp"
+        ];
+        
+        let currentIndex = 0;
+
+        function switchImage() {
+            // 计算下一张图片的索引
+            currentIndex = (currentIndex + 1) % images.length;
+            
+            // 更新图片源
+            document.getElementById("current-image").src = images[currentIndex];
+        }
+    </script>
 </body>
 </html>
